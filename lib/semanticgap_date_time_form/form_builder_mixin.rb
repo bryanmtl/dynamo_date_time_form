@@ -14,7 +14,7 @@ module SemanticGap
             # @template.time_zone_select(f.object_name, :time_zone_name, ActiveSupport::TimeZone.us_zones, :default => Time.zone.name)
         end
 
-        raw(@template.content_tag('div', form, :class => 'sg-datetime-form'))
+        @template.content_tag('div', form, :class => 'sg-datetime-form')
       end
 
       private
