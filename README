@@ -1,0 +1,50 @@
+SemanticGapDateTimeForm
+========================
+
+This provides extends Rails' FormBuilder to have a #datetime_form method
+which is more awesome than the standard #datetime_select.
+
+
+Dependencies
+=============
+
+* ActiveForm
+  * git://github.com/zaczheng/activeform.git
+  * http://github.com/nayutaya/active_form.git
+
+
+Installation
+=============
+
+  $ cd RAILS_ROOT
+  $ ./script/plugin install git://github.com/zaczheng/activeform.git
+  $ ./script/plugin install http://git.oss.semanticgap.com/ruby/semanticgap_date_time_form.git
+
+
+Usage
+======
+
+Model
+------
+
+class Record < ActiveRecord::Base
+  datetime_fields_for :created_at
+  datetime_fields_for :published_at, :allow_blank => true
+end
+
+View
+-----
+
+<% form_for @record do |f| -%>
+  <%= f.label :published_at %>
+  <%= f.datetime_form :published_at %>
+
+  <%= f.label :created_at %>
+  <%= f.datetime_form :created_at %>
+<% end -%>
+
+
+Legal
+======
+
+Copyright (c) 2010 SemanticGap(R), released under the MIT license
